@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trip Guide</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Icon -->
+<link rel="icon" href="https://raw.githubusercontent.com/OZ-00MS/source/refs/heads/main/space%20a/icon.jpg" type="image/png">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100vh;
+  background-color: #1e1e1e;
+  color: white;
+  padding-top: 20px;
+  z-index: 1000;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 20px 0;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.sidebar li i {
+  font-size: 20px;
+}
+
+.sidebar li span {
+  display: block;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.sidebar li:hover {
+  background-color: #333;
+}
+
+/* ================= DROPDOWN ================= */
+.user .dropdown {
+  position: absolute;
+  top: 0;
+  left: 80px;
+  width: 140px;
+  background-color: #333;
+  display: none;
+}
+
+.user .dropdown li {
+  padding: 12px;
+  text-align: left;
+}
+
+.user .dropdown li:hover {
+  background-color: #444;
+}
+
+.user:hover .dropdown {
+  display: block;
+}
+
+/* ================= MAIN BODY ================= */
+.body {
+  margin-left: 80px;
+  height: 100vh;
+  overflow: hidden;
+}
+a{
+  color: white;
+  text-decoration: none;
+}
+/* ================= MAP ================= */
+.body iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+<header class="sidebar">
+  <ul>
+    <li>
+      <i class="fa-solid fa-house"></i>
+     <a href="home.html"> <span>Home</span></a>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-map"></i>
+    <a href="map.html">  <span>Map</span></a>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-suitcase-rolling"></i>
+      <span>Trips</span>
+    </li>
+
+    <li>
+      <i class="fa-solid fa-hotel"></i>
+      <span>Hotel</span>
+    </li>
+
+    <li class="user">
+      <i class="fa-solid fa-user"></i>
+      <span>User</span>
+      <ul class="dropdown">
+        <li>Login</li>
+        <li>Sign in</li>
+        <li>Log out</li>
+      </ul>
+    </li>
+  </ul>
+</header>
+
+<!-- ================= MAP AREA ================= -->
+<div class="body">
+  <iframe
+    src="https://www.openstreetmap.org/export/embed.html?bbox=-7.65%2C33.55%2C-7.55%2C33.65&layer=mapnik"
+    loading="lazy">
+  </iframe>
+</div>
+
+</body>
+</html>
