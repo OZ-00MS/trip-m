@@ -1,20 +1,57 @@
 const express = require('express');
-const app = express();
+const fs = require('fs');
 const path = require('path');
+const bodyParser = require('body-parser');
 
-// Serve all static files in "public" (CSS, JS, images)
-app.use(express.static('public'));
+const app = express();
+const PORT = 3000;
 
-// Serve home.html at root
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public')); // serve CSS/JS
+
+const usersFile = path.join(__dirname, 'users.json');
+
+// Read/write users
+function readUsers() {
+  if (!fs.existsSync(usersFile)) return [];
+  const data = fs.readFileSync(usersFile, 'utf8');
+  return JSON.parse(data || '[]');
+}
+
+function writeUsers(users) {
+  fs.writeFileSync(usersFile, JSON.stringify(users, null, 2));
+}
+
+// Serve login page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/home.html'));
+  res.sendFile(path.join(__dirname, 'public', 'user.html'));
 });
 
-// Optional: add other pages if needed
-// app.get('/hotel', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public/hotel.html'));
-// });
+// Signup
+app.post('/signup', (req, res) => {
+  const { username, email, password } = req.body;
+  const users = readUsers();
 
-app.listen(3000, () => {
-    console.log('Server is running 👍 on http://localhost:3000');
+  if (users.find(u => u.username === username)) {
+    return res.send('Username already exists! <a href="/">Go back</a>');
+  }
+
+  users.push({ username, email, password });
+  writeUsers(users);
+  res.redirect('/home.html'); // go to home after signup
 });
+
+// Login
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+  const users = readUsers();
+
+  const user = users.find(u => u.username === username && u.password === password);
+  if (user) {
+    res.redirect('/home.html'); // go to home after login
+  } else {
+    res.send('Invalid username or password! <a href="/">Try again</a>');
+  }
+});
+
+app.listen(PORT, () => console.log(`Server running: http://localhost:${PORT}`));

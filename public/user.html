@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trip Guide Login</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="user.css">
+</head>
+<body>
+<header class="sidebar">
+  <ul>
+<a href="home.html"> <li><i class="fa-solid fa-house"></i><span>Home</span></li></a>
+<a href="https://www.google.com/maps"> <li><i class="fa-solid fa-map"></i><span>Map</span></li></a>
+<a href="https://travelingaroundmorocco.com/best-places-to-visit-in-morocco/"><li><i class="fa-solid fa-suitcase-rolling"></i><span>Trips</span></li></a>
+<a href="https://www.luxuryhotelsguides.com/?ufi=-38833&msclkid=f0f1dbd7048210e27ab3b294d42c5fb2"><li><i class="fa-solid fa-hotel"></i><span>Hotel</span></li> </a>
+<a href="user.html"><li class="user"><i class="fa-solid fa-user"></i><span>User</span></li></a>
+  </ul>
+</header>
+
+<div class="body">
+  <div class="box">
+
+    <!-- Left: Map -->
+    <div class="b1">
+      <iframe src="https://www.google.com/maps?q=Morocco&output=embed"></iframe>
+    </div>
+
+    <!-- Right: Login/Register -->
+    <div class="b2">
+      <div class="b2-bg">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <div class="container">
+
+        <!-- PAGE 1: Welcome -->
+        <div class="page active" id="page1">
+          <div class="card">
+            <div class="top-row">
+              <button class="backArrow">←</button>
+              <button class="nextArrow">→</button>
+            </div>
+            <h1>Welcome to Trip Guide</h1>
+            <p>Connect wherever you are.<br>
+               Lost? We’ll guide you.<br>
+               Hotels, VIP taxis & full travel support.</p>
+            <button id="toPage2">Next</button>
+          </div>
+        </div>
+
+        <!-- PAGE 2: Login -->
+        <div class="page" id="page2">
+          <div class="card">
+            <div class="top-row">
+              <button class="backArrow">←</button>
+              <button class="nextArrow">→</button>
+            </div>
+            <h1>Login</h1>
+          <form action="/login" method="POST">
+  <input name="username" placeholder="Username" required>
+  <input name="password" type="password" placeholder="Password" required>
+  <button type="submit">Login</button>
+</form>
+            <p>Don’t have an account? <a href="#" id="toPage3">Sign up</a></p>
+          </div>
+        </div>
+
+        <!-- PAGE 3: Register -->
+        <div class="page" id="page3">
+          <div class="card">
+            <div class="top-row">
+              <button class="backArrow">←</button>
+              <button class="nextArrow">→</button>
+            </div>
+            <h1>Register</h1>
+<form action="/signup" method="POST">
+  <input name="username" placeholder="Username" required>
+  <input name="email" type="email" placeholder="Email" required>
+  <input name="password" type="password" placeholder="Password" required>
+  <button type="submit">Sign Up</button>
+</form>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="user.js"></script>
+</body>
+</html>
