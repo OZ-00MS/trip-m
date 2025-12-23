@@ -35,7 +35,7 @@ A modern **frontend web project** for a **Trip Guide** application. This project
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/trip-guide.git
+https://github.com/OZ-00MS/trip-m.git
 ```
 
 2. Open the project folder
@@ -62,7 +62,6 @@ The goal of this project is to **practice frontend development** by building a r
 <img width="1349" height="610" alt="Screenshot 2" src="https://github.com/user-attachments/assets/5d5bd42a-24ce-4205-9344-e85bfe5d4c72" />
 <img width="1351" height="614" alt="Screenshot 3" src="https://github.com/user-attachments/assets/7862e2eb-820a-4678-9345-a49e950b2c10" />
 <img width="1348" height="556" alt="Screenshot 4" src="https://github.com/user-attachments/assets/073610bb-fcf3-49c6-93d9-4a2c82337643" />
-##Login
 <img width="1366" height="614" alt="Screenshot 2025-12-20 134448" src="https://github.com/user-attachments/assets/df22bcc2-3301-4339-893d-10c7fcf2e224" />
 
 
